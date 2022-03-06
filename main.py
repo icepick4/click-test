@@ -39,7 +39,7 @@ while playing:
             playing = False
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 :
             #si la partie n'a pas encore débuté
-            if windowSize[0]-120 < event.pos[0] < windowSize[0] and 10 < event.pos[1] < 40:
+            if windowSize[0]-140 < event.pos[0] < windowSize[0] and 10 < event.pos[1] < 40:
                 playing = False
             if clicks == 0:
                 partyStart = True
@@ -47,9 +47,8 @@ while playing:
             #sinon on incrémente les cliques et son affichage
             clicks+=1
             clicksSurface = clicksFont.render("CLICKS : {0}".format(clicks),True,(0,0,0))
-            clicksRect = clicksSurface.get_rect(midtop=(windowSize[0]/2,windowSize[1]/2))
 
-    #si le chrono est dépassé, on affiche le résultat    
+    #si le chrono est dépassé, on affiche le résultat
     if timer <= 0:
         score = clicks/10
         scoreSurface = scoreFont.render("Score : {} CPS".format(score), True, (0,0,0))
@@ -64,8 +63,6 @@ while playing:
 
     #affichage du timer en temps réel
     timerSurface = timerFont.render("TIMER : {0}s".format(round(timer,1)), True,(0,0,0))
-    timerRect = timerSurface.get_rect(midbottom=(windowSize[0]/2,windowSize[1]/2))
-
     #on rempli l'écran avec les surfaces : clicks, timer, score
     screen.fill((255,255,255))
     screen.blit(clicksSurface,clicksRect)
@@ -75,7 +72,7 @@ while playing:
     pygame.display.flip()
 pygame.quit()
 
-                
-                
-        
+
+
+
 
